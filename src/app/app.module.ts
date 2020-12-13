@@ -7,18 +7,24 @@ import { MenuComponent } from './Page/menu/menu.component';
 import { FooterComponent } from './Page/footer/footer.component';
 import {AppRoutingModule} from './app-routing.module';
 import {ReactiveFormsModule} from '@angular/forms';
+import { DodajEdytujCzasopismoComponent } from './Komponenty/dodaj-edytuj-czasopismo/dodaj-edytuj-czasopismo.component';
+import { ElementCzasopismoComponent } from './Komponenty/element-czasopismo/element-czasopismo.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     CzasopismaDashboardComponent,
     MenuComponent,
-    FooterComponent
+    FooterComponent,
+    DodajEdytujCzasopismoComponent,
+    ElementCzasopismoComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
