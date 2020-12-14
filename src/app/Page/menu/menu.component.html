@@ -1,1 +1,5 @@
 <a href="czasopisma">Czasopisma</a>
+<button *ngIf="!czyZalogowany()" (click)="zaloguj()"> Zaloguj się </button>
+<button *ngIf="!czyZalogowany()" (click)="rejestracja()"> Zarejestruj się </button>
+<button *ngIf="czyZalogowany()" (click)="wyloguj()"> Wyloguj się </button>
+<button routerLink="/uzytkownik/profil"> Profil </button>

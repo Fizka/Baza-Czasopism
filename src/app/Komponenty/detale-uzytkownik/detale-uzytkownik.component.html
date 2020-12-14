@@ -1,0 +1,52 @@
+<button (click)="edytujProfil()" *ngIf="widokDetali"> Edytuj profil </button>
+<button (click)="edytujProfil()" *ngIf="widokDetali && mozliwaEdycja"> Usuń profil </button>
+
+<h2>{{tytul}}</h2>
+{{uzytkownikForm.get('login').hasError('required') | json}}
+<form [formGroup]="uzytkownikForm" (ngSubmit)="submit()">
+  <div class="form-group row has-danger">
+    <label for="login" class="col-sm-2 col-form-label">Wprowadź login:</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control-plaintext" id="login" formControlName="login" required>
+    </div>
+    <div class="invalid-feedback" *ngIf="uzytkownikForm.get('login').hasError('required')">
+      Login jest wymagany!
+    </div>
+  </div>
+  <div class="form-group row" *ngIf="widokRejestracji">
+    <label for="haslo" class="col-sm-2 col-form-label">Wprowadź hasło:</label>
+    <div class="col-sm-10">
+      <input type="password" class="form-control-plaintext" id="haslo" formControlName="haslo" required>
+    </div>
+  </div>
+  <div class="form-group row" *ngIf="widokRejestracji">
+    <label for="potwierdzHaslo" class="col-sm-2 col-form-label">Potwierdź hasło:</label>
+    <div class="col-sm-10">
+      <input type="password" class="form-control-plaintext" id="potwierdzHaslo" [formControl]="potwierdzHaslo" required>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="username" class="col-sm-2 col-form-label">Wprowadź nazwę użytkownika:</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control-plaintext" id="username" formControlName="username" required>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="imie" class="col-sm-2 col-form-label">Wprowadź imię</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control-plaintext" id="imie" formControlName="imie" required>
+    </div>
+  </div>
+  <div class="form-group row" *ngIf="czyAdmin">
+    <label for="uprawnienia" class="col-sm-2 col-form-label">Podaj uprawnienia</label>
+    <div class="col-sm-10">
+      <select class="form-control" formControlName="uprawnienia" id="uprawnienia" required>
+        <option value="1">Uzytkownik</option>
+        <option value="2">Administrator</option>
+      </select>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary" *ngIf="!widokDetali">{{przyciskTresc}}</button>
+</form>
+
+

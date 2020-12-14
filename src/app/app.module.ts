@@ -1,30 +1,30 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
 import { CzasopismaDashboardComponent } from './Komponenty/czasopisma-dashboard/czasopisma-dashboard.component';
-import { MenuComponent } from './Page/menu/menu.component';
+import { DetaleCzasopismoComponent } from './Komponenty/detale-czasopismo/detale-czasopismo.component';
 import { FooterComponent } from './Page/footer/footer.component';
-import {AppRoutingModule} from './app-routing.module';
-import {ReactiveFormsModule} from '@angular/forms';
-import { DodajEdytujCzasopismoComponent } from './Komponenty/dodaj-edytuj-czasopismo/dodaj-edytuj-czasopismo.component';
-import { ElementCzasopismoComponent } from './Komponenty/element-czasopismo/element-czasopismo.component';
-import {HttpClientModule} from '@angular/common/http';
+import { MenuComponent } from './Page/menu/menu.component';
+import { DetaleUzytkownikComponent } from './Komponenty/detale-uzytkownik/detale-uzytkownik.component';
+import { LogowanieComponent } from './Komponenty/logowanie/logowanie.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CzasopismaDashboardComponent,
-    MenuComponent,
+    DetaleCzasopismoComponent,
     FooterComponent,
-    DodajEdytujCzasopismoComponent,
-    ElementCzasopismoComponent,
+    MenuComponent,
+    DetaleUzytkownikComponent,
+    LogowanieComponent,
   ],
   imports: [
-    BrowserModule,
     AppRoutingModule,
+    BrowserModule,
     ReactiveFormsModule,
-    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
