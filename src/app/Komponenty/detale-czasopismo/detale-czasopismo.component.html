@@ -1,3 +1,10 @@
+<button class="btn btn-primary" type="button" (click)="edytuj()" *ngIf="widokDetali && czyAdmin">
+  Edytuj czasopismo
+</button>
+<button class="btn btn-primary" type="button" (click)="usun()" *ngIf="widokDetali && czyAdmin">
+  Usuń czasopismo
+</button>
+
 <h2>{{tytul}}</h2>
 
 <form [formGroup]="czasopismoForm" (ngSubmit)="submit()">

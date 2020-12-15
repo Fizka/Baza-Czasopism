@@ -5,6 +5,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {CzasopismaComponent} from '../../Serwisy/czasopisma.component';
 import {FormsHelper} from '../../Helpers/forms.helper';
 import {MatSnackBar} from '@angular/material';
+import {LogowanieService} from '../../Serwisy/logowanie.service';
 
 @Component({
   selector: 'app-detale-czasopismo',
@@ -20,7 +21,8 @@ export class DetaleCzasopismoComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private router: Router,
-              public snackBar: MatSnackBar) {
+              public snackBar: MatSnackBar,
+              private logowanieService: LogowanieService) {
     this.route.data.subscribe(data => {
       this.typWidoku = data.typWidoku;
     });
@@ -51,8 +53,22 @@ export class DetaleCzasopismoComponent implements OnInit {
     }
   }
 
+  edytuj(): void {
+    const id: string = this.czasopismoForm.get('id').value;
+    this.router.navigate([`/czasopisma/edycja/${id}`]);
+  }
+
+  usun(): void {
+    CzasopismaComponent.usunCzasopismo(this.czasopismoForm.get('id').value);
+    this.router.navigate([`/`]);
+  }
+
   get widokDetali(): boolean {
     return this.typWidoku === 'detale';
+  }
+
+  get czyAdmin(): boolean {
+    return this.logowanieService.isAdmin();
   }
 
   get tytul(): string {

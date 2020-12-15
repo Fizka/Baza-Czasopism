@@ -10,7 +10,7 @@ const routes: Routes = [
   {path: '', redirectTo: 'czasopisma', pathMatch: 'full'},
   {path: 'czasopisma', component: CzasopismaDashboardComponent},
   {path: 'czasopisma/dodaj', component: DetaleCzasopismoComponent, data: {typWidoku: 'dodaj'}},
-  {path: 'czasopisma/edytuj/:id', component: DetaleCzasopismoComponent, data: {typWidoku: 'edytuj'}},
+  {path: 'czasopisma/edycja/:id', component: DetaleCzasopismoComponent, data: {typWidoku: 'edytuj'}},
   {path: 'czasopisma/:id', component: DetaleCzasopismoComponent, data: {typWidoku: 'detale'}},
   {path: 'uzytkownik/edycja/:username', component: DetaleUzytkownikComponent, data: {typWidoku: 'edytuj'}},
   {path: 'uzytkownik/profil', component: DetaleUzytkownikComponent, data: {typWidoku: 'profil'}},
