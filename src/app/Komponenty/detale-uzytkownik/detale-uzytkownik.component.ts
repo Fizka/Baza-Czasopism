@@ -5,6 +5,8 @@ import {AbstractControl, FormControl, FormGroup, ValidatorFn, Validators} from '
 import {FormsHelper} from '../../Helpers/forms.helper';
 import {LogowanieService} from '../../Serwisy/logowanie.service';
 import {UzytkownicyComponent} from '../../Serwisy/uzytkownicy.component';
+import {MatSnackBar, MatSnackBarConfig} from '@angular/material';
+import {MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition} from '@angular/material/snack-bar/typings/snack-bar-config';
 
 @Component({
   selector: 'app-detale-uzytkownik',
@@ -24,14 +26,15 @@ export class DetaleUzytkownikComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private router: Router,
-              private logowanieSerwis: LogowanieService) {
+              private logowanieSerwis: LogowanieService,
+              public snackBar: MatSnackBar) {
     this.route.data.subscribe(data => {
       this.typWidoku = data.typWidoku;
     });
   }
 
   ngOnInit() {
-    let id: number;
+    let id: number = null;
     if (this.typWidoku === 'detale' || this.typWidoku === 'edytuj') {
       id = history.state.uzytkownikId;
     } else if (this.typWidoku === 'profil') {
@@ -63,6 +66,8 @@ export class DetaleUzytkownikComponent implements OnInit {
         UzytkownicyComponent.dodajUzytkownika(this.helper.getModelUzytkownik(this.uzytkownikForm));
         this.nawiguj();
       }
+    } else {
+      this.openSnackbar();
     }
   }
 
@@ -128,6 +133,13 @@ export class DetaleUzytkownikComponent implements OnInit {
         this.router.navigate(['/logowanie']);
       }
     }
+  }
+
+  openSnackbar() {
+    const message = 'Należy wypełnić wszystkie pola.';
+    this.snackBar.open(message, 'Close', {
+      duration: 10000
+    });
   }
 }
 

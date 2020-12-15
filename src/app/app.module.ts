@@ -10,6 +10,8 @@ import {FooterComponent} from './Page/footer/footer.component';
 import {MenuComponent} from './Page/menu/menu.component';
 import {DetaleUzytkownikComponent} from './Komponenty/detale-uzytkownik/detale-uzytkownik.component';
 import {LogowanieComponent} from './Komponenty/logowanie/logowanie.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import {MatSnackBarModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,8 @@ import {LogowanieComponent} from './Komponenty/logowanie/logowanie.component';
     AppRoutingModule,
     BrowserModule,
     ReactiveFormsModule,
+    MatSnackBarModule,
+    NoopAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

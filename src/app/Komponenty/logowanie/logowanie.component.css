@@ -1,5 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=Numans');
 
+::ng-deep snack-bar-container simple-snack-bar .mat-simple-snackbar-action button {
+  color: white;
+  outline: none;
+}
+::ng-deep .mat-snack-bar-container {
+  color: white;
+}
+
+
 .body {
   /*background-image: url('http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg');*/
   background-size: cover;

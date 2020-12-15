@@ -1,0 +1,7 @@
+::ng-deep snack-bar-container simple-snack-bar .mat-simple-snackbar-action button {
+  color: white;
+  outline: none;
+}
+::ng-deep .mat-snack-bar-container {
+  color: white;
+}

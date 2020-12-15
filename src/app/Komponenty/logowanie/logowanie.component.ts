@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {LogowanieService} from '../../Serwisy/logowanie.service';
 import {Router} from '@angular/router';
+import {MatSnackBar} from '@angular/material';
 
 @Component({
   selector: 'app-logowanie',
@@ -14,11 +15,10 @@ export class LogowanieComponent implements OnInit {
     login: new FormControl('', Validators.required),
     haslo: new FormControl('', Validators.required)
   });
-  wiadomosc = '';
-  isSignUpFailed = false;
 
   constructor(private logowanieService: LogowanieService,
-              private router: Router) {
+              private router: Router,
+              public snackBar: MatSnackBar) {
   }
 
   ngOnInit() {
@@ -28,9 +28,14 @@ export class LogowanieComponent implements OnInit {
     if (this.logowanieForm.valid && this.logowanieService.zaloguj(this.logowanieForm)) {
       this.router.navigate(['/']);
     } else {
-      this.isSignUpFailed = true;
-      this.wiadomosc = 'Wprowadzone dane są niepoprawne. Spróbuj jeszcze raz';
+      this.openSnackbar();
     }
   }
 
+  openSnackbar() {
+    const message = 'Wprowadzone dane są niepoprawne. Spróbuj jeszcze raz';
+    this.snackBar.open(message, 'Close', {
+      duration: 5000
+    });
+  }
 }

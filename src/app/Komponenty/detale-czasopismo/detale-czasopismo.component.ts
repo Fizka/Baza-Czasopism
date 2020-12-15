@@ -4,6 +4,7 @@ import {FormGroup} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 import {CzasopismaComponent} from '../../Serwisy/czasopisma.component';
 import {FormsHelper} from '../../Helpers/forms.helper';
+import {MatSnackBar} from '@angular/material';
 
 @Component({
   selector: 'app-detale-czasopismo',
@@ -18,7 +19,8 @@ export class DetaleCzasopismoComponent implements OnInit {
   typWidoku: string;
 
   constructor(private route: ActivatedRoute,
-              private router: Router) {
+              private router: Router,
+              public snackBar: MatSnackBar) {
     this.route.data.subscribe(data => {
       this.typWidoku = data.typWidoku;
     });
@@ -44,6 +46,8 @@ export class DetaleCzasopismoComponent implements OnInit {
       }
       const id = this.czasopismoForm.get('id').value;
       this.router.navigate([`/czasopisma/${id}`]);
+    } else {
+      this.openSnackbar();
     }
   }
 
@@ -65,5 +69,12 @@ export class DetaleCzasopismoComponent implements OnInit {
       return `ZATWIERDŹ`;
     }
     return `DODAJ`;
+  }
+
+  openSnackbar() {
+    const message = 'Należy wypełnić wszystkie pola.';
+    this.snackBar.open(message, 'Close', {
+      duration: 10000
+    });
   }
 }
