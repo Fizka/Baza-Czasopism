@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {LogowanieService} from '../../Serwisy/logowanie.service';
 import {Router} from '@angular/router';
@@ -18,7 +18,8 @@ export class LogowanieComponent implements OnInit {
   isSignUpFailed = false;
 
   constructor(private logowanieService: LogowanieService,
-              private router: Router) { }
+              private router: Router) {
+  }
 
   ngOnInit() {
   }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 
 @Component({
@@ -8,12 +8,17 @@ import {Router} from '@angular/router';
 })
 export class CzasopismaDashboardComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) {
+  }
 
   ngOnInit() {
   }
 
   dodaj(): void {
     this.router.navigateByUrl('/czasopisma/dodaj');
+  }
+
+  uzytkownik(): void {
+    this.router.navigate([`/uzytkownik/profil/username1`], {state: {uzytkownikId: 1}});
   }
 }

@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import {Component, OnInit} from '@angular/core';
+import {FormGroup} from '@angular/forms';
 
-import { ActivatedRoute } from '@angular/router';
-import { CzasopismaComponent } from '../../Serwisy/czasopisma.component';
+import {ActivatedRoute, Router} from '@angular/router';
+import {CzasopismaComponent} from '../../Serwisy/czasopisma.component';
 import {FormsHelper} from '../../Helpers/forms.helper';
 
 @Component({
@@ -17,8 +17,9 @@ export class DetaleCzasopismoComponent implements OnInit {
   typEdycji = false;
   typWidoku: string;
 
-  constructor(private route: ActivatedRoute) {
-    this.route.data.subscribe( data => {
+  constructor(private route: ActivatedRoute,
+              private router: Router) {
+    this.route.data.subscribe(data => {
       this.typWidoku = data.typWidoku;
     });
   }
@@ -37,11 +38,12 @@ export class DetaleCzasopismoComponent implements OnInit {
     if (this.czasopismoForm.valid) {
       if (this.typEdycji) {
         CzasopismaComponent.zmienCzasopismo(this.helper.getModelCzasopismo(this.czasopismoForm));
-        // add redirect to detais
       } else {
+        this.czasopismoForm = CzasopismaComponent.nadajId(this.czasopismoForm);
         CzasopismaComponent.dodajCzasopismo(this.helper.getModelCzasopismo(this.czasopismoForm));
-        // add redirect to details
       }
+      const id = this.czasopismoForm.get('id').value;
+      this.router.navigate([`/czasopisma/${id}`]);
     }
   }
 

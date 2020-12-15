@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
 import {LogowanieService} from '../../Serwisy/logowanie.service';
 
 @Component({
@@ -10,7 +10,8 @@ import {LogowanieService} from '../../Serwisy/logowanie.service';
 export class MenuComponent implements OnInit {
 
   constructor(private router: Router,
-              private logowanieService: LogowanieService) { }
+              private logowanieService: LogowanieService) {
+  }
 
   ngOnInit() {
   }

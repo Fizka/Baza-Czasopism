@@ -1,8 +1,8 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 
-import { UzytkownicyComponent } from './uzytkownicy.component';
-import { UzytkownikModel } from '../Model/uzytkownik.model';
-import { FormGroup } from '@angular/forms';
+import {UzytkownicyComponent} from './uzytkownicy.component';
+import {UzytkownikModel} from '../Model/uzytkownik.model';
+import {FormGroup} from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'

@@ -1,5 +1,6 @@
 import * as czasopismaData from '../../assets/czasopisma.json';
 import {CzasopismoModel} from '../Model/czasopismo.model';
+import {FormGroup} from '@angular/forms';
 
 export class CzasopismaComponent {
 
@@ -15,7 +16,6 @@ export class CzasopismaComponent {
   }
 
   static dodajCzasopismo(czasopismo: CzasopismoModel): void {
-    czasopismo.id = this.czasopisma.length;
     this.czasopisma.push(czasopismo);
   }
 
@@ -29,5 +29,10 @@ export class CzasopismaComponent {
   static usunCzasopismo(id: number): void {
     const index = this.czasopisma.findIndex(czasopismo => czasopismo.id === id);
     this.czasopisma.splice(index, 1);
+  }
+
+  static nadajId(forma: FormGroup): FormGroup {
+    forma.get('id').setValue(this.czasopisma.length);
+    return forma;
   }
 }

@@ -1,7 +1,6 @@
-import { CzasopismoModel } from '../Model/czasopismo.model';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import {CzasopismoModel} from '../Model/czasopismo.model';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {UzytkownikModel} from '../Model/uzytkownik.model';
-import {validatorHasla} from '../Komponenty/detale-uzytkownik/detale-uzytkownik.component';
 
 export class FormsHelper {
 
@@ -34,7 +33,7 @@ export class FormsHelper {
 
   generateFormCzasopismo(widokDetali: boolean): FormGroup {
     return new FormGroup({
-      id: new FormControl({value: '', disabled: widokDetali}, Validators.required),
+      id: new FormControl({value: '', disabled: widokDetali}),
       tytul: new FormControl({value: '', disabled: widokDetali}, Validators.required),
       wydawca: new FormControl({value: '', disabled: widokDetali}, Validators.required),
       issn: new FormControl({value: '', disabled: widokDetali}, Validators.required),
@@ -64,7 +63,7 @@ export class FormsHelper {
     forma.get('haslo').setValue(detale.haslo);
     forma.get('username').setValue(detale.username);
     forma.get('imie').setValue(detale.imie);
-    forma.get('uprawnienia').setValue(detale.uprawnienia !== 0 ? detale.uprawnienia : 1);
+    forma.get('uprawnienia').setValue(detale.uprawnienia);
     return forma;
   }
 
@@ -75,8 +74,28 @@ export class FormsHelper {
       haslo: new FormControl({value: '', disabled: widokDetali}, Validators.required),
       username: new FormControl({value: '', disabled: widokDetali}, Validators.required),
       imie: new FormControl({value: '', disabled: widokDetali}, Validators.required),
-      uprawnienia: new FormControl({value: 0, disabled: widokDetali}),
+      uprawnienia: new FormControl({value: 1, disabled: widokDetali}),
     });
   }
 
+  tlumaczeniaUzytkownik(): string[][] {
+    return [
+      [
+        'Wprowadź login:',
+        'Login uzytkownika:'
+      ],
+      [
+        'Wprowadź nazwę użytkownika:',
+        'Nazwa użytkownika:',
+      ],
+      [
+        'Wprowadź imię:',
+        'Imię użytkownika',
+      ],
+      [
+        'Podaj uprawnienia:',
+        'Uprawnienia użytkownika:',
+      ]
+    ];
+  }
 }
