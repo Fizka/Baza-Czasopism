@@ -1,3 +1,17 @@
-<p>czasopisma-dashboard works!</p>
 <button class="btn btn-primary" type="button" (click)="dodaj()">Dodaj czasopismo</button>
 <button class="btn btn-primary" type="button" (click)="uzytkownik()">Uzytkownik 1 - profil</button>
+<div class="form-group">
+  <input type="text" class="form-control" id="searchInput" (keyup)="searchFilter()" required [(ngModel)]="searchText"
+         aria-describedby="searchInput"
+         placeholder="Wpisz fraze">
+</div>
+<ag-grid-angular
+  style="width: 100%; height: 700px;"
+  class="ag-theme-alpine-dark"
+  [rowData]="rowData"
+  [columnDefs]="columnDefs"
+  [defaultColDef]="defaultColDef"
+  [rowHeight]="200"
+  [autoSizePadding]="true"
+  (gridReady)="gridready($event)">
+</ag-grid-angular>

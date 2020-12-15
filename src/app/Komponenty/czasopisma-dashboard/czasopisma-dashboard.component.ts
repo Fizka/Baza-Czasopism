@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
+import {CzasopismaComponent} from '../../Serwisy/czasopisma.component';
+import {CzasopismoModel} from '../../Model/czasopismo.model';
 
 @Component({
   selector: 'app-czasopisma-dashboard',
@@ -8,17 +10,55 @@ import {Router} from '@angular/router';
 })
 export class CzasopismaDashboardComponent implements OnInit {
 
+  gridApi;
+  title = 'Czasopisma';
+  searchText: string;
+  defaultColDef = {
+    sortable: true,
+    filter: true,
+    resizable: true,
+    wrapText: true
+  };
+  columnDefs = [
+    {headerName: 'Tytuł', field: 'tytul', sortable: true, filter: true},
+    {headerName: 'Wydawca', field: 'wydawca', sortable: true, filter: true, resizable: false, width: 350},
+    {headerName: 'ISSN', field: 'issn', sortable: true, filter: true},
+    {headerName: 'Redakcja', field: 'redakcja', sortable: true, filter: true},
+    {headerName: 'Częstotliwość', field: 'czestotliwosc', sortable: true, filter: true},
+    {headerName: 'Rok Wydania', field: 'rokWydania', sortable: true, filter: true, resizable: false, width: 150},
+    {headerName: 'Witryna', field: 'witrynaWww', sortable: true, filter: true},
+    {headerName: 'Dostępność Lokalna', field: 'pelneTekstyLokalnie', sortable: true, filter: true}
+  ];
+  rowData = [];
+
   constructor(private router: Router) {
   }
 
   ngOnInit() {
+    this.ladowanieDanych();
+  }
+
+  gridready(params) {
+    this.gridApi = params.api;
+    this.gridApi.sizeColumnsToFit();
+  }
+
+  ladowanieDanych(): void {
+    this.rowData = CzasopismaComponent.getCzasopisma();
+  }
+
+  uzytkownik(): void {
+    this.router.navigate([`/uzytkownik/profil/username1`], {state: {uzytkownikId: 1}});
   }
 
   dodaj(): void {
     this.router.navigateByUrl('/czasopisma/dodaj');
   }
 
-  uzytkownik(): void {
-    this.router.navigate([`/uzytkownik/profil/username1`], {state: {uzytkownikId: 1}});
+  searchFilter(): void {
+    if (this.searchText) {
+      this.searchText = this.searchText.toLocaleLowerCase();
+      this.gridApi.setQuickFilter(this.searchText);
+    }
   }
 }

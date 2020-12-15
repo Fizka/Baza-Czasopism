@@ -1,6 +1,6 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing.module';
@@ -10,16 +10,19 @@ import {FooterComponent} from './Page/footer/footer.component';
 import {MenuComponent} from './Page/menu/menu.component';
 import {DetaleUzytkownikComponent} from './Komponenty/detale-uzytkownik/detale-uzytkownik.component';
 import {LogowanieComponent} from './Komponenty/logowanie/logowanie.component';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import {MatSnackBarModule} from '@angular/material';
+import {HeaderComponent} from './Page/header/header.component';
+import {NoopAnimationsModule} from '@angular/platform-browser/animations';
+import {AgGridModule} from 'ag-grid-angular';
 
 @NgModule({
   declarations: [
     AppComponent,
     CzasopismaDashboardComponent,
+    MenuComponent,
     DetaleCzasopismoComponent,
     FooterComponent,
-    MenuComponent,
+    HeaderComponent,
     DetaleUzytkownikComponent,
     LogowanieComponent,
   ],
@@ -29,6 +32,8 @@ import {MatSnackBarModule} from '@angular/material';
     ReactiveFormsModule,
     MatSnackBarModule,
     NoopAnimationsModule,
+    AgGridModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
