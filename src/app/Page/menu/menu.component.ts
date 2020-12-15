@@ -16,17 +16,8 @@ export class MenuComponent implements OnInit {
   ngOnInit() {
   }
 
-  zaloguj(): void {
-    this.router.navigate(['/logowanie']);
-  }
-
-  rejestracja(): void {
-    this.router.navigate(['/rejestracja']);
-  }
-
   wyloguj(): void {
     this.logowanieService.wyloguj();
-    this.router.navigate(['/']);
   }
 
   czyZalogowany(): boolean {

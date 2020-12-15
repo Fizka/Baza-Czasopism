@@ -1,5 +1,28 @@
-<a href="czasopisma">Czasopisma</a>
-<button *ngIf="!czyZalogowany()" (click)="zaloguj()"> Zaloguj się</button>
-<button *ngIf="!czyZalogowany()" (click)="rejestracja()"> Zarejestruj się</button>
-<button *ngIf="czyZalogowany()" (click)="wyloguj()"> Wyloguj się</button>
-<button *ngIf="czyZalogowany()" routerLink="/uzytkownik/profil"> Profil</button>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" href="#">Baza danych czasopism</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarColor01">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/czasopisma">Lista czasopism</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav">
+      <li *ngIf="!czyZalogowany()" class="nav-item">
+        <a class="nav-link" routerLink="/logowanie">Zaloguj</a>
+      </li>
+      <li *ngIf="!czyZalogowany()" class="nav-item">
+        <a class="nav-link" routerLink="/rejestracja">Rejestracja</a>
+      </li>
+      <li *ngIf="czyZalogowany()" class="nav-item">
+        <a class="nav-link" routerLink="/uzytkownik/profil">Profil</a>
+      </li>
+      <li *ngIf="czyZalogowany()" class="nav-item">
+        <a class="nav-link" routerLink="/" (click)="wyloguj()">Wyloguj</a>
+      </li>
+    </ul>
+  </div>
+</nav>
