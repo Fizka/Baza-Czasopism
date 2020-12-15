@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {CzasopismaComponent} from '../../Serwisy/czasopisma.component';
 import {CzasopismoModel} from '../../Model/czasopismo.model';
+import {UlubioneColumnComponent} from './ulubione-column.component';
 
 @Component({
   selector: 'app-czasopisma-dashboard',
@@ -20,6 +21,10 @@ export class CzasopismaDashboardComponent implements OnInit {
     wrapText: true
   };
   columnDefs = [
+    {
+      headerName: '', width: 105, cellRendererFramework: UlubioneColumnComponent,
+      sortable: false, filter: false, singleClickEdit: false, editable: false, suppressSizeToFit: true
+    },
     {headerName: 'Tytuł', field: 'tytul', sortable: true, filter: true},
     {headerName: 'Wydawca', field: 'wydawca', sortable: true, filter: true, resizable: false, width: 350},
     {headerName: 'ISSN', field: 'issn', sortable: true, filter: true},

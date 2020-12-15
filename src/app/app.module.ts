@@ -14,6 +14,7 @@ import {MatSnackBarModule} from '@angular/material';
 import {HeaderComponent} from './Page/header/header.component';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {AgGridModule} from 'ag-grid-angular';
+import {UlubioneColumnComponent} from './Komponenty/czasopisma-dashboard/ulubione-column.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import {AgGridModule} from 'ag-grid-angular';
     DetaleCzasopismoComponent,
     FooterComponent,
     HeaderComponent,
+    UlubioneColumnComponent,
     DetaleUzytkownikComponent,
     LogowanieComponent,
   ],
@@ -36,7 +38,8 @@ import {AgGridModule} from 'ag-grid-angular';
     FormsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [UlubioneColumnComponent]
 })
 export class AppModule {
 }
