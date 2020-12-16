@@ -1,4 +1,4 @@
-<button class="btn btn-primary" type="button" (click)="dodaj()">Dodaj czasopismo</button>
+<button *ngIf="czyAdmin()" class="btn btn-primary" type="button" (click)="dodaj()">Dodaj czasopismo</button>
 <button class="btn btn-primary" type="button" (click)="uzytkownik()">Uzytkownik 1 - profil</button>
 <div class="form-group">
   <input type="text" class="form-control" id="searchInput" (keyup)="searchFilter()" required [(ngModel)]="searchText"

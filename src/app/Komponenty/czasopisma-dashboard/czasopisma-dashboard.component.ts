@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
+import {LogowanieService} from "../../Serwisy/logowanie.service";
 import {CzasopismaComponent} from '../../Serwisy/czasopisma.component';
 import {CzasopismoModel} from '../../Model/czasopismo.model';
 import {UlubioneColumnComponent} from './ulubione-column.component';
@@ -36,7 +37,8 @@ export class CzasopismaDashboardComponent implements OnInit {
   ];
   rowData = [];
 
-  constructor(private router: Router) {
+  constructor(private router: Router,
+              private logowanieService: LogowanieService,) {
   }
 
   ngOnInit() {
@@ -65,5 +67,9 @@ export class CzasopismaDashboardComponent implements OnInit {
       this.searchText = this.searchText.toLocaleLowerCase();
       this.gridApi.setQuickFilter(this.searchText);
     }
+  }
+
+  czyAdmin(): boolean {
+    return this.logowanieService.isAdmin();
   }
 }
