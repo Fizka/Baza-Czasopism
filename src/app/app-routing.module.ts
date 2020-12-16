@@ -5,6 +5,7 @@ import {CzasopismaDashboardComponent} from './Komponenty/czasopisma-dashboard/cz
 import {DetaleCzasopismoComponent} from './Komponenty/detale-czasopismo/detale-czasopismo.component';
 import {DetaleUzytkownikComponent} from './Komponenty/detale-uzytkownik/detale-uzytkownik.component';
 import {LogowanieComponent} from './Komponenty/logowanie/logowanie.component';
+import {UzytkownikListaComponent} from './Komponenty/uzytkownicy/uzytkownik-lista.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'czasopisma', pathMatch: 'full'},
@@ -12,10 +13,12 @@ const routes: Routes = [
   {path: 'czasopisma/dodaj', component: DetaleCzasopismoComponent, data: {typWidoku: 'dodaj'}},
   {path: 'czasopisma/edycja/:id', component: DetaleCzasopismoComponent, data: {typWidoku: 'edytuj'}},
   {path: 'czasopisma/:id', component: DetaleCzasopismoComponent, data: {typWidoku: 'detale'}},
+  {path: 'uzytkownicy', component: UzytkownikListaComponent},
   {path: 'uzytkownik/edycja/:username', component: DetaleUzytkownikComponent, data: {typWidoku: 'edytuj'}},
   {path: 'uzytkownik/profil', component: DetaleUzytkownikComponent, data: {typWidoku: 'profil'}},
   {path: 'uzytkownik/profil/:username', component: DetaleUzytkownikComponent, data: {typWidoku: 'detale'}},
-  {path: 'rejestracja', component: DetaleUzytkownikComponent, data: {typWidoku: 'dodaj'}},
+  {path: 'uzytkownik/dodaj', component: DetaleUzytkownikComponent, data: {typWidoku: 'dodaj'}},
+  {path: 'rejestracja', component: DetaleUzytkownikComponent, data: {typWidoku: 'rejestruj'}},
   {path: 'logowanie', component: LogowanieComponent}
 ];
 

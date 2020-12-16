@@ -3,3 +3,4 @@
 <button *ngIf="!czyZalogowany()" (click)="rejestracja()"> Zarejestruj się</button>
 <button *ngIf="czyZalogowany()" (click)="wyloguj()"> Wyloguj się</button>
 <button *ngIf="czyZalogowany()" routerLink="/uzytkownik/profil"> Profil</button>
+<button *ngIf="czyAdmin()" routerLink="/uzytkownicy"> Użytkownicy</button>

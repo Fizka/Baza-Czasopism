@@ -34,7 +34,7 @@ export class DetaleUzytkownikComponent implements OnInit {
   }
 
   ngOnInit() {
-    let id: number = null;
+    let id: number;
     if (this.typWidoku === 'detale' || this.typWidoku === 'edytuj') {
       id = history.state.uzytkownikId;
     } else if (this.typWidoku === 'profil') {
@@ -43,12 +43,12 @@ export class DetaleUzytkownikComponent implements OnInit {
     }
     this.uzytkownikForm = this.helper.generateFormUzytkownik(this.widokDetali);
 
-    if (this.typWidoku === 'dodaj') {
+    if (this.widokRejestracji) {
       this.uzytkownikForm.setValidators(validatorHasla(this.potwierdzHaslo));
       this.potwierdzHaslo.valueChanges.subscribe(() => this.uzytkownikForm.updateValueAndValidity());
     }
 
-    if (id) {
+    if (id !== undefined) {
       this.typEdycji = true;
       const element = UzytkownicyComponent.getUzytkownik(id);
       this.helper.setValuesUzytkownik(element, this.uzytkownikForm);
@@ -81,12 +81,14 @@ export class DetaleUzytkownikComponent implements OnInit {
   }
 
   get widokRejestracji(): boolean {
-    return this.typWidoku === 'dodaj';
+    return this.typWidoku === 'dodaj' || this.typWidoku === 'rejestruj';
   }
 
   get tytul(): string {
     if (this.typWidoku === 'dodaj') {
       return `REJESTRACJA UŻYTKOWNIKA`;
+    } else if (this.typWidoku === 'rejestruj') {
+      return `DODAJ UŻYTKOWNIKA`;
     } else if (this.typWidoku === 'edytuj') {
       return `MODYFIKACJA  ${this.username}`;
     }
@@ -96,6 +98,8 @@ export class DetaleUzytkownikComponent implements OnInit {
   get przyciskTresc(): string {
     if (this.typWidoku === 'edytuj') {
       return `ZATWIERDŹ`;
+    } else if (this.typWidoku === 'dodaj') {
+      return `DODAJ`;
     }
     return `ZAREJESTRUJ SIĘ`;
   }
@@ -114,7 +118,7 @@ export class DetaleUzytkownikComponent implements OnInit {
     UzytkownicyComponent.usunUzytkownika(this.uzytkownikForm.get('id').value);
     if (this.czyAdmin) {
       // powinien przekierować na listę userów
-      this.router.navigate(['/']);
+      this.router.navigate(['uzytkownicy']);
     } else {
       this.logowanieSerwis.wyloguj();
       this.router.navigate(['/']);
