@@ -8,6 +8,7 @@ import {LogowanieComponent} from './Komponenty/logowanie/logowanie.component';
 import {AdminGuard} from "./admin/admin.guard";
 import {UserGuard} from "./admin/user.guard";
 import {NiezalogowanyGuard} from "./admin/niezalogowany.guard";
+import {UzytkownikListaComponent} from './Komponenty/uzytkownicy/uzytkownik-lista.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'czasopisma', pathMatch: 'full'},
@@ -15,6 +16,8 @@ const routes: Routes = [
   {path: 'czasopisma/dodaj', component: DetaleCzasopismoComponent, canActivate: [UserGuard], data: {typWidoku: 'dodaj'}},
   {path: 'czasopisma/edycja/:id', component: DetaleCzasopismoComponent, canActivate: [AdminGuard], data: {typWidoku: 'edytuj'}},
   {path: 'czasopisma/:id', component: DetaleCzasopismoComponent, canActivate: [AdminGuard], data: {typWidoku: 'detale'}},
+  {path: 'uzytkownicy', component: UzytkownikListaComponent},
+  {path: 'rejestracja', component: DetaleUzytkownikComponent, data: {typWidoku: 'rejestruj'}},
   {path: 'uzytkownik/edycja/:username', component: DetaleUzytkownikComponent, canActivate: [UserGuard], data: {typWidoku: 'edytuj'}},
   {path: 'uzytkownik/profil', component: DetaleUzytkownikComponent, canActivate: [UserGuard], data: {typWidoku: 'profil'}},
   {path: 'uzytkownik/profil/:username', component: DetaleUzytkownikComponent, canActivate: [UserGuard], data: {typWidoku: 'detale'}},

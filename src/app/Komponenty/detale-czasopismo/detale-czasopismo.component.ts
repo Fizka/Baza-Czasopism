@@ -6,6 +6,7 @@ import {CzasopismaComponent} from '../../Serwisy/czasopisma.component';
 import {FormsHelper} from '../../Helpers/forms.helper';
 import {MatSnackBar} from '@angular/material';
 import {LogowanieService} from '../../Serwisy/logowanie.service';
+import {UzytkownicyComponent} from '../../Serwisy/uzytkownicy.component';
 
 @Component({
   selector: 'app-detale-czasopismo',
@@ -60,6 +61,7 @@ export class DetaleCzasopismoComponent implements OnInit {
 
   usun(): void {
     CzasopismaComponent.usunCzasopismo(this.czasopismoForm.get('id').value);
+    UzytkownicyComponent.usunCzasopismo(this.czasopismoForm.get('id').value);
     this.router.navigate([`/`]);
   }
 

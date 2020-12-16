@@ -51,4 +51,14 @@ export class UzytkownicyComponent {
     forma.get('id').setValue(this.uzytkownicy.length);
     return forma;
   }
+
+  static usunCzasopismo(id: number): void {
+    let index = -1;
+    this.uzytkownicy.forEach( uzytkownik => {
+      index = uzytkownik.czasopisma.findIndex( el => el === id);
+      if (index !== -1) {
+        uzytkownik.czasopisma.splice(index, 1);
+      }
+    });
+  }
 }

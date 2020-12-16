@@ -1,7 +1,7 @@
-<button *ngIf="czyAdmin()" class="btn btn-primary" type="button" (click)="dodaj()">Dodaj czasopismo</button>
-<button *ngIf="czyAdmin" class="btn btn-primary" type="button" routerLink="/uzytkownik/dodaj"> Dodaj użytkownika</button>
+<button class="btn btn-primary" type="button" (click)="dodaj()">Dodaj użytkownika</button>
 <div class="form-group">
-  <input type="text" class="form-control" id="searchInput" (keyup)="searchFilter()" required [(ngModel)]="searchText"
+  <input type="text" class="form-control" id="searchInput" (keyup)="searchFilter()"
+         required [(ngModel)]="searchText"
          aria-describedby="searchInput"
          placeholder="Wpisz fraze">
 </div>
@@ -13,5 +13,7 @@
   [defaultColDef]="defaultColDef"
   [rowHeight]="200"
   [autoSizePadding]="true"
+  rowSelection="single"
+  (selectionChanged)="getDetails()"
   (gridReady)="gridready($event)">
 </ag-grid-angular>
