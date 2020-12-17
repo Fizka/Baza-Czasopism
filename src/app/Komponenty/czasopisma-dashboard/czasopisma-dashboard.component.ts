@@ -1,5 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
+import {UlubioneColumnComponent} from "./ulubione-column.component";
+import {CzasopismaComponent} from "../../Serwisy/czasopisma.component";
+import {LogowanieService} from "../../Serwisy/logowanie.service";
 
 @Component({
   selector: 'app-czasopisma-dashboard',
@@ -34,37 +37,53 @@ export class CzasopismaDashboardComponent implements OnInit {
   rowData = [];
 
   constructor(private router: Router,
-              private logowanieService: LogowanieService,) {
+              private logowanieService: LogowanieService,) {}
 
-  ngOnInit() {
-    this.ladowanieDanych();
+    ngOnInit()
+    {
+      this.ladowanieDanych();
+    }
+
+    gridready(params)
+    {
+      this.gridApi = params.api;
+      this.gridApi.sizeColumnsToFit();
+    }
+
+    ladowanieDanych()
+  :
+    void {
+      this.rowData = CzasopismaComponent.getCzasopisma();
   }
 
-  gridready(params) {
-    this.gridApi = params.api;
-    this.gridApi.sizeColumnsToFit();
+    uzytkownik()
+  :
+    void {
+      this.router.navigate([`/uzytkownik/profil/username1`], {state: {uzytkownikId: 1}});
   }
 
-  ladowanieDanych(): void {
-    this.rowData = CzasopismaComponent.getCzasopisma();
+    dodaj()
+  :
+    void {
+      this.router.navigateByUrl('/czasopisma/dodaj');
   }
 
-  uzytkownik(): void {
-    this.router.navigate([`/uzytkownik/profil/username1`], {state: {uzytkownikId: 1}});
-  }
-
-  dodaj(): void {
-    this.router.navigateByUrl('/czasopisma/dodaj');
-  }
-
-  searchFilter(): void {
-    if (this.searchText) {
+    searchFilter()
+  :
+    void {
+      if(this.searchText
+  )
+    {
       this.searchText = this.searchText.toLocaleLowerCase();
       this.gridApi.setQuickFilter(this.searchText);
     }
   }
 
-  czyAdmin(): boolean {
-    return this.logowanieService.isAdmin();
+    czyAdmin()
+  :
+    boolean
+    {
+      return this.logowanieService.isAdmin();
+    }
   }
-}
+
