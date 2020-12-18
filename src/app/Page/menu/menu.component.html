@@ -10,7 +10,7 @@
       <li class="nav-item">
         <a class="nav-link" routerLink="/czasopisma">Lista czasopism</a>
       </li>
-      <li *ngIf="czyAdmin" class="nav-item">
+      <li *ngIf="czyAdmin()" class="nav-item">
         <a class="nav-link" routerLink="/uzytkownicy">Lista użytkowników</a>
       </li>
     </ul>

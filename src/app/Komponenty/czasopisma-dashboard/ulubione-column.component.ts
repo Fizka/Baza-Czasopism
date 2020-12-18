@@ -47,8 +47,19 @@ export class UlubioneColumnComponent implements AgRendererComponent {
       this.ulubione = !this.ulubione;
       const index = this.rowData.czasopisma.findIndex(row => row === data.id);
       this.ulubione === false ? this.rowData.czasopisma.push(data.id) : this.rowData.czasopisma.splice(index, 1);
-      UzytkownicyComponent.zmienUzytkownika(this.rowData);
+      if (UzytkownicyComponent.zmienUzytkownika(this.rowData)) {
+        this.logowanieService.aktualizujUzytkownika(this.rowData);
+      }
     }
+    this.preventRowSelection();
+  }
+
+  preventRowSelection(): void {
+    const previousValue = this.params.node.gridOptionsWrapper.gridOptions.suppressRowClickSelection;
+    this.params.node.gridOptionsWrapper.gridOptions.suppressRowClickSelection = true;
+    setTimeout(() => {
+      this.params.node.gridOptionsWrapper.gridOptions.suppressRowClickSelection = previousValue;
+    });
   }
 
   sprawdzUlubioneUzytkownika(data: CzasopismoModel) {

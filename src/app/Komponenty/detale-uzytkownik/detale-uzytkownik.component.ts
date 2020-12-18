@@ -58,8 +58,11 @@ export class DetaleUzytkownikComponent implements OnInit {
   submit(): void {
     if (this.uzytkownikForm.valid) {
       if (this.typEdycji) {
-        UzytkownicyComponent.zmienUzytkownika(this.helper.getModelUzytkownik(this.uzytkownikForm));
-        this.nawiguj();
+        const model = this.helper.getModelUzytkownik(this.uzytkownikForm);
+        if (UzytkownicyComponent.zmienUzytkownika(model)) {
+          this.logowanieSerwis.aktualizujUzytkownika(model);
+          this.nawiguj();
+        }
       } else {
         this.uzytkownikForm = UzytkownicyComponent.nadajId(this.uzytkownikForm);
         UzytkownicyComponent.dodajUzytkownika(this.helper.getModelUzytkownik(this.uzytkownikForm));
@@ -115,8 +118,7 @@ export class DetaleUzytkownikComponent implements OnInit {
 
   usunProfil(): void {
     UzytkownicyComponent.usunUzytkownika(this.uzytkownikForm.get('id').value);
-    if (this.czyAdmin) {
-      // powinien przekierować na listę userów
+    if (this.typWidoku !== 'profil' && this.czyAdmin) {
       this.router.navigate(['uzytkownicy']);
     } else {
       this.logowanieSerwis.wyloguj();

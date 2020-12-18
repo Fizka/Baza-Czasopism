@@ -22,6 +22,10 @@ export class LogowanieService {
     localStorage.removeItem('uzytkownik');
   }
 
+  aktualizujUzytkownika(uzytkownik: UzytkownikModel): void {
+    localStorage.setItem('uzytkownik', JSON.stringify(uzytkownik));
+  }
+
   pobierzUzytkownika(): UzytkownikModel {
     return JSON.parse(localStorage.getItem('uzytkownik'));
   }
@@ -30,17 +34,13 @@ export class LogowanieService {
     return this.pobierzUzytkownika() ? this.pobierzUzytkownika().id : null;
   }
 
-  uprawnienia(): number {
-    return (JSON.parse(localStorage.getItem('uzytkownik')) as UzytkownikModel).uprawnienia;
-  }
-
   czyZalogowany(): boolean {
     return !!localStorage.getItem('uzytkownik');
   }
 
   isAdmin(): boolean {
     if (this.czyZalogowany()) {
-      return (JSON.parse(localStorage.getItem('uzytkownik')) as UzytkownikModel).uprawnienia === 2;
+      return (JSON.parse(localStorage.getItem('uzytkownik')) as UzytkownikModel).uprawnienia.toString() === '2';
     }
     return false;
   }
