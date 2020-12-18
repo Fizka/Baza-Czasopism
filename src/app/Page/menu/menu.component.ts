@@ -27,5 +27,4 @@ export class MenuComponent implements OnInit {
   czyAdmin(): boolean {
     return this.logowanieService.isAdmin();
   }
-
 }

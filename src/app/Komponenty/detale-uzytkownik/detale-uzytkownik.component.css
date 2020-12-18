@@ -2,6 +2,16 @@
   color: white;
   outline: none;
 }
+
 ::ng-deep .mat-snack-bar-container {
+  color: white;
+}
+
+.margin-profil {
+  padding: 20px 250px 20px 250px;
+}
+
+.margin-profil label {
+  font-weight: bolder;
   color: white;
 }

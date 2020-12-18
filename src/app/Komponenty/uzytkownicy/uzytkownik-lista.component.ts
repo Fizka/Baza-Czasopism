@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {UzytkownicyComponent} from '../../Serwisy/uzytkownicy.component';
 
@@ -26,7 +26,8 @@ export class UzytkownikListaComponent implements OnInit {
   ];
   rowData = [];
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) {
+  }
 
   ngOnInit() {
     this.ladowanieDanych();

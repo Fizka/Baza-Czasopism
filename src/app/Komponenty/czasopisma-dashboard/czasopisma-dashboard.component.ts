@@ -1,5 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
+import {UlubioneColumnComponent} from './ulubione-column.component';
+import {LogowanieService} from '../../Serwisy/logowanie.service';
+import {CzasopismaComponent} from '../../Serwisy/czasopisma.component';
 
 @Component({
   selector: 'app-czasopisma-dashboard',
@@ -34,7 +37,8 @@ export class CzasopismaDashboardComponent implements OnInit {
   rowData = [];
 
   constructor(private router: Router,
-              private logowanieService: LogowanieService,) {
+              private logowanieService: LogowanieService) {
+  }
 
   ngOnInit() {
     this.ladowanieDanych();

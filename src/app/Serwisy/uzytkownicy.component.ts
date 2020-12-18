@@ -25,6 +25,7 @@ export class UzytkownicyComponent {
   static zmienUzytkownika(uzytkownik: UzytkownikModel): void {
     const index = this.uzytkownicy.findIndex(u => u.id === uzytkownik.id);
     if (index !== -1) {
+      console.log('update' + uzytkownik);
       this.uzytkownicy.splice(index, 1, uzytkownik);
     }
   }
@@ -54,8 +55,8 @@ export class UzytkownicyComponent {
 
   static usunCzasopismo(id: number): void {
     let index = -1;
-    this.uzytkownicy.forEach( uzytkownik => {
-      index = uzytkownik.czasopisma.findIndex( el => el === id);
+    this.uzytkownicy.forEach(uzytkownik => {
+      index = uzytkownik.czasopisma.findIndex(el => el === id);
       if (index !== -1) {
         uzytkownik.czasopisma.splice(index, 1);
       }

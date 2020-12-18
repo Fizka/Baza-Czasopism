@@ -13,4 +13,6 @@
   border-color: transparent;
 }
 
-
+.form-group {
+  margin-bottom: 0px;
+}

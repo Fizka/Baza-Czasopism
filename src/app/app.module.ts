@@ -10,15 +10,12 @@ import {FooterComponent} from './Page/footer/footer.component';
 import {MenuComponent} from './Page/menu/menu.component';
 import {DetaleUzytkownikComponent} from './Komponenty/detale-uzytkownik/detale-uzytkownik.component';
 import {LogowanieComponent} from './Komponenty/logowanie/logowanie.component';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {MatSnackBarModule} from '@angular/material';
 import {HeaderComponent} from './Page/header/header.component';
-import {NoopAnimationsModule} from '@angular/platform-browser/animations';
-import {AgGridModule} from 'ag-grid-angular';
 import {UlubioneColumnComponent} from './Komponenty/czasopisma-dashboard/ulubione-column.component';
-import { UzytkownikListaComponent } from './Komponenty/uzytkownicy/uzytkownik-lista.component';
+import {UzytkownikListaComponent} from './Komponenty/uzytkownicy/uzytkownik-lista.component';
 import {AgGridModule} from 'ag-grid-angular';
-import { UlubioneCzasopismaComponent } from './Komponenty/ulubione-czasopisma/ulubione-czasopisma.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +29,6 @@ import { UlubioneCzasopismaComponent } from './Komponenty/ulubione-czasopisma/ul
     DetaleUzytkownikComponent,
     LogowanieComponent,
     UzytkownikListaComponent,
-    UlubioneCzasopismaComponent,
   ],
   imports: [
     AppRoutingModule,

@@ -5,8 +5,7 @@ import {AbstractControl, FormControl, FormGroup, ValidatorFn, Validators} from '
 import {FormsHelper} from '../../Helpers/forms.helper';
 import {LogowanieService} from '../../Serwisy/logowanie.service';
 import {UzytkownicyComponent} from '../../Serwisy/uzytkownicy.component';
-import {MatSnackBar, MatSnackBarConfig} from '@angular/material';
-import {MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition} from '@angular/material/snack-bar/typings/snack-bar-config';
+import {MatSnackBar} from '@angular/material';
 
 @Component({
   selector: 'app-detale-uzytkownik',

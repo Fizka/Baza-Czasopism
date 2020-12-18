@@ -4,6 +4,8 @@ body {
 
 .page-body {
   background: darkgray;
+  min-height: 660px;
+  height: 100%;
 }
 
 .page {
