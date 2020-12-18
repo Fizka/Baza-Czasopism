@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+import {LogowanieService} from '../../Serwisy/logowanie.service';
 
 @Component({
   selector: 'app-menu',
@@ -7,9 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router,
+              private logowanieService: LogowanieService) {
+  }
 
   ngOnInit() {
   }
 
+  wyloguj(): void {
+    this.logowanieService.wyloguj();
+  }
+
+  czyZalogowany(): boolean {
+    return this.logowanieService.czyZalogowany();
+  }
+
+  czyAdmin(): boolean {
+    return this.logowanieService.isAdmin();
+  }
 }

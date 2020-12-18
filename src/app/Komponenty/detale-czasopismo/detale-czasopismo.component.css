@@ -1,0 +1,18 @@
+::ng-deep snack-bar-container simple-snack-bar .mat-simple-snackbar-action button {
+  color: white;
+  outline: none;
+}
+
+::ng-deep .mat-snack-bar-container {
+  color: white;
+}
+
+.margin-profil {
+  padding: 20px 250px 20px 250px;
+  min-height: 660px;
+}
+
+.margin-profil label {
+  font-weight: bolder;
+  color: white;
+}

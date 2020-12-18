@@ -1,0 +1,70 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary" style="height:1px">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
+          aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarColor01">
+    <ul class="navbar-nav ml-auto">
+      <li *ngIf="widokDetali" class="nav-item active">
+        <a class="nav-link" (click)="edytujProfil()">Edytuj profil
+        </a>
+      </li>
+      <li *ngIf="widokDetali && mozliwaEdycja" class="nav-item">
+        <a class="nav-link" r (click)="usunProfil()"> Usuń profil</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<br/>
+<br/>
+<div class="margin-profil">
+  <h2>{{tytul}}</h2>
+  <br/>
+  <br/>
+  <form [formGroup]="uzytkownikForm" (ngSubmit)="submit()">
+    <div class="form-group row has-danger">
+      <label for="login" class="col-sm-2 col-form-label">{{tlumaczenia[0][tlumaczeniaWersja]}}</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="login" formControlName="login" required>
+      </div>
+      <div class="invalid-feedback" *ngIf="uzytkownikForm.get('login').hasError('required')">
+        Login jest wymagany!
+      </div>
+    </div>
+    <div class="form-group row" *ngIf="widokRejestracji">
+      <label for="haslo" class="col-sm-2 col-form-label">Wprowadź hasło:</label>
+      <div class="col-sm-10">
+        <input type="password" class="form-control" id="haslo" formControlName="haslo" required>
+      </div>
+    </div>
+    <div class="form-group row" *ngIf="widokRejestracji">
+      <label for="potwierdzHaslo" class="col-sm-2 col-form-label">Potwierdź hasło:</label>
+      <div class="col-sm-10">
+        <input type="password" class="form-control" id="potwierdzHaslo" [formControl]="potwierdzHaslo" required>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="username" class="col-sm-2 col-form-label">{{tlumaczenia[1][tlumaczeniaWersja]}}</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="username" formControlName="username" required>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="imie" class="col-sm-2 col-form-label">{{tlumaczenia[2][tlumaczeniaWersja]}}</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="imie" formControlName="imie" required>
+      </div>
+    </div>
+    <div class="form-group row" *ngIf="czyAdmin">
+      <label for="uprawnienia" class="col-sm-2 col-form-label">{{tlumaczenia[3][tlumaczeniaWersja]}}</label>
+      <div class="col-sm-10">
+        <select class="form-control" formControlName="uprawnienia" id="uprawnienia" required>
+          <option value="1">Użytkownik</option>
+          <option value="2">Administrator</option>
+        </select>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary" *ngIf="!widokDetali">{{przyciskTresc}}</button>
+  </form>
+</div>
+

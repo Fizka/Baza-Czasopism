@@ -1,0 +1,18 @@
+.btn-ulubione-blank {
+  background: url("../../../assets/heart.png") no-repeat;
+}
+
+.btn-ulubione-added {
+  background: url("src/assets/heartblack.png") no-repeat;
+}
+
+.btn-ulubione {
+  margin-top: 30px;
+  height: 66px;
+  width: 66px;
+  border-color: transparent;
+}
+
+.form-group {
+  margin-bottom: 0px;
+}

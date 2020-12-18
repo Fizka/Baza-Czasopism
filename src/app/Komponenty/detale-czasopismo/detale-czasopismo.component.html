@@ -1,0 +1,81 @@
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary" style ="height:1px">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarColor01">
+    <ul class="navbar-nav ml-auto">
+      <li *ngIf="widokDetali && czyAdmin" class="nav-item active">
+        <a class="nav-link" routerLink="TU MA BYc scieżka" (click)="edytuj()" >Edytuj czasopismo
+        </a>
+      </li>
+      <li *ngIf="widokDetali && czyAdmin" class="nav-item">
+        <a class="nav-link" routerLink="TU MA BYc scieżka" (click)="usun()" >Usuń czasopismo</a>
+      </li>
+
+    </ul>
+
+  </div>
+</nav>
+<br/>
+<br/>
+<div class="margin-profil">
+  <h2>{{tytul}}</h2>
+  <br/>
+  <br/>
+  <form [formGroup]="czasopismoForm" (ngSubmit)="submit()">
+    <div class="form-group row">
+      <label for="tytul" class="col-sm-2 col-form-label">Tytuł</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="tytul" formControlName="tytul" required>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="wydawca" class="col-sm-2 col-form-label">Wydawca</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="wydawca" formControlName="wydawca" required>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="issn" class="col-sm-2 col-form-label">ISSN</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="issn" formControlName="issn" required>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="redakcja" class="col-sm-2 col-form-label">Redakcja</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="redakcja" formControlName="redakcja" required>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="czestotliwosc" class="col-sm-2 col-form-label">Częstotliwość</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="czestotliwosc" formControlName="czestotliwosc" required>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="rokWydania" class="col-sm-2 col-form-label">Rok wydania</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="rokWydania" formControlName="rokWydania" required>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="witrynaWww" class="col-sm-2 col-form-label">Witryna www</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="witrynaWww" formControlName="witrynaWww">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="pelneTekstyLokalnie" class="col-sm-2 col-form-label">Pełne teksty lokalnie</label>
+      <div class="col-sm-10">
+        <select class="form-control" formControlName="pelneTekstyLokalnie" id="pelneTekstyLokalnie" required>
+          <option value="true">True</option>
+          <option value="false">False</option>
+        </select>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary" *ngIf="!widokDetali">{{przyciskTresc}}</button>
+  </form>
+</div>

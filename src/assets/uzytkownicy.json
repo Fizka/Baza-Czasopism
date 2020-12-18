@@ -1,0 +1,92 @@
+[
+  {
+    "id": 0,
+    "login": "login0",
+    "haslo": "haslo0",
+    "username": "username0",
+    "imie": "imie0",
+    "czasopisma": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ],
+    "uprawnienia": 1
+  },
+  {
+    "id": 1,
+    "login": "login1",
+    "haslo": "haslo1",
+    "username": "username1",
+    "imie": "imie1",
+    "czasopisma": [ 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 ],
+    "uprawnienia": 1
+  },
+  {
+    "id": 2,
+    "login": "login2",
+    "haslo": "haslo2",
+    "username": "username2",
+    "imie": "imie2",
+    "czasopisma": [ 10, 11, 12, 13, 14, 15, 16, 17, 18, 19 ],
+    "uprawnienia": 1
+  },
+  {
+    "id": 3,
+    "login": "login3",
+    "haslo": "haslo3",
+    "username": "username3",
+    "imie": "imie3",
+    "czasopisma": [ 15, 16, 17, 18, 19, 20, 21, 22, 23, 24 ],
+    "uprawnienia": 1
+  },
+  {
+    "id": 4,
+    "login": "login4",
+    "haslo": "haslo4",
+    "username": "username4",
+    "imie": "imie4",
+    "czasopisma": [ 20, 21, 22, 23, 24, 25, 26, 27, 28, 29 ],
+    "uprawnienia": 1
+  },
+  {
+    "id": 5,
+    "login": "login5",
+    "haslo": "haslo5",
+    "username": "username5",
+    "imie": "imie5",
+    "czasopisma": [ 25, 26, 27, 28, 29, 30, 31, 32, 33, 34 ],
+    "uprawnienia": 1
+  },
+  {
+    "id": 6,
+    "login": "login6",
+    "haslo": "haslo6",
+    "username": "username6",
+    "imie": "imie6",
+    "czasopisma": [ 30, 31, 32, 33, 34, 35, 36, 37, 38, 39 ],
+    "uprawnienia": 1
+  },
+  {
+    "id": 7,
+    "login": "login7",
+    "haslo": "haslo7",
+    "username": "username7",
+    "imie": "imie7",
+    "czasopisma": [ 35, 36, 37, 38, 39, 40, 41, 42, 43, 44 ],
+    "uprawnienia": 1
+  },
+  {
+    "id": 8,
+    "login": "admin8",
+    "haslo": "haslo8",
+    "username": "admin8",
+    "imie": "imie8",
+    "czasopisma": [ 40, 41, 42, 43, 44, 45, 46, 47, 48, 49 ],
+    "uprawnienia": 2
+  },
+  {
+    "id": 9,
+    "login": "admin9",
+    "haslo": "haslo9",
+    "username": "admin9",
+    "imie": "imie9",
+    "czasopisma": [ 0, 1, 2, 3, 4, 45, 46, 47, 48, 49 ],
+    "uprawnienia": 2
+  }
+]
