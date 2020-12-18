@@ -5,7 +5,6 @@ import {CzasopismoModel} from '../../Model/czasopismo.model';
 import {UzytkownicyComponent} from '../../Serwisy/uzytkownicy.component';
 import {UzytkownikModel} from '../../Model/uzytkownik.model';
 import {LogowanieService} from '../../Serwisy/logowanie.service';
-import value from '*.json';
 
 @Component({
   selector: 'app-ulubione-column',

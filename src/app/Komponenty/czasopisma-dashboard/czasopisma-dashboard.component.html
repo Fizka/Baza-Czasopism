@@ -9,8 +9,9 @@
       </li>
     </ul>
     <ul class="navbar-nav ml-auto">
-      <li *ngIf="czyAdmin()" class="nav-item">
-        <a class="nav-link" routerLink="/czasopismo/dodaj" (click)="dodaj()">Dodaj czasopismo</a>
+      <li *ngIf="czyAdmin()" class="nav-item active">
+        <a class="nav-link" routerLink="/czasopismo/dodaj" (click)="dodaj()">Dodaj czasopismo
+        </a>
       </li>
     </ul>
   </div>
