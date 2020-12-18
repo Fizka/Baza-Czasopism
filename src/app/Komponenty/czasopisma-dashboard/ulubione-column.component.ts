@@ -55,5 +55,6 @@ export class UlubioneColumnComponent implements AgRendererComponent {
     return this.rowData.czasopisma.find(row => row === data.id);
   }
 
+
 }
 

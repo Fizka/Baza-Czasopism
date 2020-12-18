@@ -85,7 +85,7 @@ export class FormsHelper {
         'Login uzytkownika:'
       ],
       [
-        'Wprowadź nazwę użytkownika:',
+        'Wprowadź nazwę:',
         'Nazwa użytkownika:',
       ],
       [

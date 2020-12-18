@@ -3,6 +3,7 @@ import {Router} from '@angular/router';
 import {UlubioneColumnComponent} from './ulubione-column.component';
 import {LogowanieService} from '../../Serwisy/logowanie.service';
 import {CzasopismaComponent} from '../../Serwisy/czasopisma.component';
+import {UzytkownikModel} from '../../Model/uzytkownik.model';
 
 @Component({
   selector: 'app-czasopisma-dashboard',
@@ -11,6 +12,8 @@ import {CzasopismaComponent} from '../../Serwisy/czasopisma.component';
 })
 export class CzasopismaDashboardComponent implements OnInit {
 
+  ulubione = false;
+  backaup: any;
   gridApi;
   title = 'Czasopisma';
   searchText: string;
@@ -51,6 +54,7 @@ export class CzasopismaDashboardComponent implements OnInit {
 
   ladowanieDanych(): void {
     this.rowData = CzasopismaComponent.getCzasopisma();
+    this.backaup = this.rowData;
   }
 
   uzytkownik(): void {
@@ -66,6 +70,23 @@ export class CzasopismaDashboardComponent implements OnInit {
       this.searchText = this.searchText.toLocaleLowerCase();
       this.gridApi.setQuickFilter(this.searchText);
     }
+  }
+
+  pokazUlubione() {
+    const user: UzytkownikModel = this.logowanieService.pobierzUzytkownika();
+    if (this.ulubione === false) {
+      this.rowData = this.rowData.filter(
+        row => user.czasopisma.includes(row.id)
+      );
+      this.ulubione = true;
+    } else {
+      this.ulubione = false;
+      this.rowData = this.backaup;
+    }
+  }
+
+  czyZalogowany(): boolean {
+    return !!localStorage.getItem('uzytkownik');
   }
 
   czyAdmin(): boolean {

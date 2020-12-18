@@ -22,6 +22,7 @@ const routes: Routes = [
   {path: 'uzytkownik/profil', component: DetaleUzytkownikComponent, canActivate: [UserGuard], data: {typWidoku: 'profil'}},
   {path: 'uzytkownik/profil/:username', component: DetaleUzytkownikComponent, canActivate: [UserGuard], data: {typWidoku: 'detale'}},
   {path: 'rejestracja', component: DetaleUzytkownikComponent, canActivate: [NiezalogowanyGuard], data: {typWidoku: 'dodaj'}},
+  {path: 'uzytkownik/dodaj', component: DetaleUzytkownikComponent, canActivate: [UserGuard], data: {typWidoku: 'dodaj'}},
   {path: 'logowanie', component: LogowanieComponent, canActivate: [NiezalogowanyGuard]}
 ];
 
