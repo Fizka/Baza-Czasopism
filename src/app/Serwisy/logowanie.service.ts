@@ -13,12 +13,14 @@ export class LogowanieService {
     const uzytkownik = UzytkownicyComponent.znajdzUzytkownika(dane.get('login').value, dane.get('haslo').value);
     if (uzytkownik !== null) {
       localStorage.setItem('uzytkownik', JSON.stringify(uzytkownik));
+      localStorage.setItem('zalogowany', JSON.stringify(true));
       return true;
     }
     return false;
   }
 
   wyloguj(): void {
+    localStorage.setItem('zalogowany', JSON.stringify(false));
     localStorage.removeItem('uzytkownik');
   }
 
@@ -35,7 +37,7 @@ export class LogowanieService {
   }
 
   czyZalogowany(): boolean {
-    return !!localStorage.getItem('uzytkownik');
+    return JSON.parse(localStorage.getItem('zalogowany'));
   }
 
   isAdmin(): boolean {

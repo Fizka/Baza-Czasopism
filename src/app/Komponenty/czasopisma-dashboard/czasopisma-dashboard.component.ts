@@ -4,6 +4,7 @@ import {UlubioneColumnComponent} from './ulubione-column.component';
 import {LogowanieService} from '../../Serwisy/logowanie.service';
 import {CzasopismaComponent} from '../../Serwisy/czasopisma.component';
 import {UzytkownikModel} from '../../Model/uzytkownik.model';
+import {UzytkownicyComponent} from '../../Serwisy/uzytkownicy.component';
 
 @Component({
   selector: 'app-czasopisma-dashboard',

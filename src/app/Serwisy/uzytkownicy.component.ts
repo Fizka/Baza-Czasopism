@@ -58,7 +58,7 @@ export class UzytkownicyComponent {
     return forma;
   }
 
-  static usunCzasopismo(id: number): void {
+  static usunCzasopismoZUzytkownikow(id: number): void {
     let index = -1;
     this.uzytkownicy.forEach(uzytkownik => {
       index = uzytkownik.czasopisma.findIndex(el => el === id);
@@ -66,5 +66,30 @@ export class UzytkownicyComponent {
         uzytkownik.czasopisma.splice(index, 1);
       }
     });
+  }
+
+  static usunCzasopismo(idCzasopismo: number, idUzytkownik: number): UzytkownikModel {
+    let u: UzytkownikModel;
+    this.uzytkownicy.forEach(uzytkownik => {
+      if (uzytkownik.id === idUzytkownik) {
+        const index = uzytkownik.czasopisma.findIndex(el => el === idCzasopismo);
+        if (index !== -1) {
+          uzytkownik.czasopisma.splice(index, 1);
+        }
+      }
+      u = uzytkownik;
+    });
+    return u;
+  }
+
+  static dodajCzasopismo(idCzasopismo: number, idUzytkownik: number): UzytkownikModel {
+    let u: UzytkownikModel;
+    this.uzytkownicy.forEach( uzytkownik => {
+      if (uzytkownik.id === idUzytkownik) {
+        uzytkownik.czasopisma.push(idCzasopismo);
+        u = uzytkownik;
+      }
+    });
+    return u;
   }
 }

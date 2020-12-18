@@ -61,7 +61,7 @@ export class DetaleCzasopismoComponent implements OnInit {
 
   usun(): void {
     CzasopismaComponent.usunCzasopismo(this.czasopismoForm.get('id').value);
-    UzytkownicyComponent.usunCzasopismo(this.czasopismoForm.get('id').value);
+    UzytkownicyComponent.usunCzasopismoZUzytkownikow(this.czasopismoForm.get('id').value);
     this.router.navigate([`/`]);
   }
 

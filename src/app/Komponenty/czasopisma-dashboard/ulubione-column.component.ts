@@ -43,13 +43,13 @@ export class UlubioneColumnComponent implements AgRendererComponent {
   }
 
   dodajUsunDoUlubionych(data: CzasopismoModel) {
+    const id = data.id;
     if (this.rowData) {
       this.ulubione = !this.ulubione;
-      const index = this.rowData.czasopisma.findIndex(row => row === data.id);
-      this.ulubione === false ? this.rowData.czasopisma.push(data.id) : this.rowData.czasopisma.splice(index, 1);
-      if (UzytkownicyComponent.zmienUzytkownika(this.rowData)) {
-        this.logowanieService.aktualizujUzytkownika(this.rowData);
-      }
+      const index = this.rowData.czasopisma.findIndex(row => row === id);
+      const u = this.ulubione === false ? UzytkownicyComponent.dodajCzasopismo(id, this.rowData.id) :
+                                UzytkownicyComponent.usunCzasopismo(id, this.rowData.id);
+      this.logowanieService.aktualizujUzytkownika(u);
     }
     this.preventRowSelection();
   }
@@ -65,7 +65,5 @@ export class UlubioneColumnComponent implements AgRendererComponent {
   sprawdzUlubioneUzytkownika(data: CzasopismoModel) {
     return this.rowData.czasopisma.find(row => row === data.id);
   }
-
-
 }
 
