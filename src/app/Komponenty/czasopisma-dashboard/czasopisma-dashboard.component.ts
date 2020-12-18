@@ -92,4 +92,10 @@ export class CzasopismaDashboardComponent implements OnInit {
   czyAdmin(): boolean {
     return this.logowanieService.isAdmin();
   }
+
+  getDetails(): void {
+    const selectedRows = this.gridApi.getSelectedRows();
+    const id = selectedRows[0].id;
+    this.router.navigate([`/czasopisma/${id}`]);
+  }
 }

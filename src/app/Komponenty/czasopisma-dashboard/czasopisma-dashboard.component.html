@@ -12,9 +12,6 @@
       <li *ngIf="czyAdmin()" class="nav-item">
         <a class="nav-link" routerLink="/czasopismo/dodaj" (click)="dodaj()">Dodaj czasopismo</a>
       </li>
-      <li *ngIf="czyAdmin()" class="nav-item">
-        <a class="nav-link" routerLink="/uzytkownik/dodaj">Dodaj użytkownika</a>
-      </li>
     </ul>
   </div>
 </nav>
@@ -31,5 +28,7 @@
   [defaultColDef]="defaultColDef"
   [rowHeight]="200"
   [autoSizePadding]="true"
+  rowSelection="single"
+  (selectionChanged)="getDetails()"
   (gridReady)="gridready($event)">
 </ag-grid-angular>

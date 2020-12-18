@@ -5,9 +5,9 @@ import {CzasopismaDashboardComponent} from './Komponenty/czasopisma-dashboard/cz
 import {DetaleCzasopismoComponent} from './Komponenty/detale-czasopismo/detale-czasopismo.component';
 import {DetaleUzytkownikComponent} from './Komponenty/detale-uzytkownik/detale-uzytkownik.component';
 import {LogowanieComponent} from './Komponenty/logowanie/logowanie.component';
-import {AdminGuard} from "./admin/admin.guard";
-import {UserGuard} from "./admin/user.guard";
-import {NiezalogowanyGuard} from "./admin/niezalogowany.guard";
+import {AdminGuard} from './admin/admin.guard';
+import {UserGuard} from './admin/user.guard';
+import {NiezalogowanyGuard} from './admin/niezalogowany.guard';
 import {UzytkownikListaComponent} from './Komponenty/uzytkownicy/uzytkownik-lista.component';
 
 const routes: Routes = [
@@ -16,11 +16,12 @@ const routes: Routes = [
   {path: 'czasopisma/dodaj', component: DetaleCzasopismoComponent, canActivate: [UserGuard], data: {typWidoku: 'dodaj'}},
   {path: 'czasopisma/edycja/:id', component: DetaleCzasopismoComponent, canActivate: [AdminGuard], data: {typWidoku: 'edytuj'}},
   {path: 'czasopisma/:id', component: DetaleCzasopismoComponent, canActivate: [AdminGuard], data: {typWidoku: 'detale'}},
-  {path: 'uzytkownicy', component: UzytkownikListaComponent},
+  {path: 'uzytkownicy', component: UzytkownikListaComponent, canActivate: [AdminGuard]},
   {path: 'rejestracja', component: DetaleUzytkownikComponent, data: {typWidoku: 'rejestruj'}},
   {path: 'uzytkownik/edycja/:username', component: DetaleUzytkownikComponent, canActivate: [UserGuard], data: {typWidoku: 'edytuj'}},
   {path: 'uzytkownik/profil', component: DetaleUzytkownikComponent, canActivate: [UserGuard], data: {typWidoku: 'profil'}},
-  {path: 'uzytkownik/profil/:username', component: DetaleUzytkownikComponent, canActivate: [UserGuard], data: {typWidoku: 'detale'}},
+  {path: 'uzytkownik/profil/:username', component: DetaleUzytkownikComponent, canActivate: [AdminGuard], data: {typWidoku: 'detale'}},
+  {path: 'uzytkownik/dodaj', component: DetaleUzytkownikComponent, data: {typWidoku: 'dodaj'}},
   {path: 'rejestracja', component: DetaleUzytkownikComponent, canActivate: [NiezalogowanyGuard], data: {typWidoku: 'dodaj'}},
   {path: 'uzytkownik/dodaj', component: DetaleUzytkownikComponent, canActivate: [UserGuard], data: {typWidoku: 'dodaj'}},
   {path: 'logowanie', component: LogowanieComponent, canActivate: [NiezalogowanyGuard]}

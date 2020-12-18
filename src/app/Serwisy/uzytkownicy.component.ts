@@ -1,10 +1,14 @@
 import * as uzytkownicyData from '../../assets/uzytkownicy.json';
 import {UzytkownikModel} from '../Model/uzytkownik.model';
 import {FormGroup} from '@angular/forms';
+import {LogowanieService} from './logowanie.service';
 
 export class UzytkownicyComponent {
 
   protected static uzytkownicy: UzytkownikModel[] = uzytkownicyData.default;
+
+  constructor(protected logowanieService: LogowanieService) {
+  }
 
   static getUzytkownicy(): UzytkownikModel[] {
     return this.uzytkownicy;
@@ -22,12 +26,13 @@ export class UzytkownicyComponent {
     this.uzytkownicy.push(uzytkownik);
   }
 
-  static zmienUzytkownika(uzytkownik: UzytkownikModel): void {
+  static zmienUzytkownika(uzytkownik: UzytkownikModel): boolean {
     const index = this.uzytkownicy.findIndex(u => u.id === uzytkownik.id);
     if (index !== -1) {
-      console.log('update' + uzytkownik);
       this.uzytkownicy.splice(index, 1, uzytkownik);
+      return true;
     }
+    return false;
   }
 
   static usunUzytkownika(id: number): void {
