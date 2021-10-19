@@ -1,4 +1,4 @@
-export class CzasopismoModel {
+export class MagazineModel {
   id: number;
   tytul: string;
   wydawca: string;

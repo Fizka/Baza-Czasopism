@@ -1,13 +1,13 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-import {UzytkownicyComponent} from '../../Serwisy/uzytkownicy.component';
+import {UsersComponent} from '../../service/users.component';
 
 @Component({
-  selector: 'app-uzytkownicy',
-  templateUrl: './uzytkownik-lista.component.html',
-  styleUrls: ['./uzytkownik-lista.component.css']
+  selector: 'app-user-board',
+  templateUrl: './user-board.component.html',
+  styleUrls: ['./user-board.component.css']
 })
-export class UzytkownikListaComponent implements OnInit {
+export class UserBoardComponent implements OnInit {
 
   gridApi;
   title = 'Czasopisma';
@@ -30,19 +30,19 @@ export class UzytkownikListaComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.ladowanieDanych();
+    this.loadData();
   }
 
-  gridready(params) {
+  gridReady(params) {
     this.gridApi = params.api;
     this.gridApi.sizeColumnsToFit();
   }
 
-  ladowanieDanych(): void {
-    this.rowData = UzytkownicyComponent.getUzytkownicy();
+  loadData(): void {
+    this.rowData = UsersComponent.getUsers();
   }
 
-  dodaj(): void {
+  addUser(): void {
     this.router.navigateByUrl('uzytkownik/dodaj');
   }
 

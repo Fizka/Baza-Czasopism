@@ -4,31 +4,31 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing.module';
-import {CzasopismaDashboardComponent} from './Komponenty/czasopisma-dashboard/czasopisma-dashboard.component';
-import {DetaleCzasopismoComponent} from './Komponenty/detale-czasopismo/detale-czasopismo.component';
-import {FooterComponent} from './Page/footer/footer.component';
-import {MenuComponent} from './Page/menu/menu.component';
-import {DetaleUzytkownikComponent} from './Komponenty/detale-uzytkownik/detale-uzytkownik.component';
-import {LogowanieComponent} from './Komponenty/logowanie/logowanie.component';
+import {MagazineDashboardComponent} from './components/magazine-dashboard/magazine-dashboard.component';
+import {DetailsMagazineComponent} from './components/details-maganize/details-magazine.component';
+import {FooterComponent} from './page/footer/footer.component';
+import {MenuComponent} from './page/menu/menu.component';
+import {DetailsUserComponent} from './components/details-user/details-user.component';
+import {LogowanieComponent} from './components/login/logowanie.component';
 import {MatSnackBarModule} from '@angular/material';
-import {HeaderComponent} from './Page/header/header.component';
+import {HeaderComponent} from './page/header/header.component';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
-import {UlubioneColumnComponent} from './Komponenty/czasopisma-dashboard/ulubione-column.component';
-import {UzytkownikListaComponent} from './Komponenty/uzytkownicy/uzytkownik-lista.component';
+import {FavoriteComponent} from './components/magazine-dashboard/favorite.component';
+import {UserBoardComponent} from './components/users/user-board.component';
 import {AgGridModule} from 'ag-grid-angular';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CzasopismaDashboardComponent,
+    MagazineDashboardComponent,
     MenuComponent,
-    DetaleCzasopismoComponent,
+    DetailsMagazineComponent,
     FooterComponent,
     HeaderComponent,
-    UlubioneColumnComponent,
-    DetaleUzytkownikComponent,
+    FavoriteComponent,
+    DetailsUserComponent,
     LogowanieComponent,
-    UzytkownikListaComponent
+    UserBoardComponent
   ],
   imports: [
     AppRoutingModule,
@@ -41,7 +41,7 @@ import {AgGridModule} from 'ag-grid-angular';
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [UlubioneColumnComponent]
+  entryComponents: [FavoriteComponent]
 })
 export class AppModule {
 }

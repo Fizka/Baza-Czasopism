@@ -1,15 +1,15 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-import {UlubioneColumnComponent} from './ulubione-column.component';
-import {LogowanieService} from '../../Serwisy/logowanie.service';
-import {CzasopismaComponent} from '../../Serwisy/czasopisma.component';
+import {FavoriteComponent} from './favorite.component';
+import {LoginService} from '../../service/login.service';
+import {MagazinesComponent} from '../../service/magazines.component';
 
 @Component({
-  selector: 'app-czasopisma-dashboard',
-  templateUrl: './czasopisma-dashboard.component.html',
-  styleUrls: ['./czasopisma-dashboard.component.css']
+  selector: 'app-magazine-dashboard',
+  templateUrl: './magazine-dashboard.component.html',
+  styleUrls: ['./magazine-dashboard.component.css']
 })
-export class CzasopismaDashboardComponent implements OnInit {
+export class MagazineDashboardComponent implements OnInit {
 
   gridApi;
   title = 'Czasopisma';
@@ -22,7 +22,7 @@ export class CzasopismaDashboardComponent implements OnInit {
   };
   columnDefs = [
     {
-      headerName: '', width: 105, cellRendererFramework: UlubioneColumnComponent,
+      headerName: '', width: 105, cellRendererFramework: FavoriteComponent,
       sortable: false, filter: false, singleClickEdit: false, editable: false, suppressSizeToFit: true
     },
     {headerName: 'Tytuł', field: 'tytul', sortable: true, filter: true},
@@ -37,27 +37,27 @@ export class CzasopismaDashboardComponent implements OnInit {
   rowData = [];
 
   constructor(private router: Router,
-              private logowanieService: LogowanieService) {
+              private loginService: LoginService) {
   }
 
   ngOnInit() {
-    this.ladowanieDanych();
+    this.loadData();
   }
 
-  gridready(params) {
+  gridReady(params) {
     this.gridApi = params.api;
     this.gridApi.sizeColumnsToFit();
   }
 
-  ladowanieDanych(): void {
-    this.rowData = CzasopismaComponent.getCzasopisma();
+  loadData(): void {
+    this.rowData = MagazinesComponent.getMagazines();
   }
 
-  uzytkownik(): void {
+  renavigateToUser(): void {
     this.router.navigate([`/uzytkownik/profil/username1`], {state: {uzytkownikId: 1}});
   }
 
-  dodaj(): void {
+  addMagazine(): void {
     this.router.navigateByUrl('/czasopisma/dodaj');
   }
 
@@ -68,7 +68,7 @@ export class CzasopismaDashboardComponent implements OnInit {
     }
   }
 
-  czyAdmin(): boolean {
-    return this.logowanieService.isAdmin();
+  isAdmin(): boolean {
+    return this.loginService.isAdmin();
   }
 }

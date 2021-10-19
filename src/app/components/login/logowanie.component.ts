@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {LogowanieService} from '../../Serwisy/logowanie.service';
+import {LoginService} from '../../service/login.service';
 import {Router} from '@angular/router';
 import {MatSnackBar} from '@angular/material';
 
@@ -11,12 +11,12 @@ import {MatSnackBar} from '@angular/material';
 })
 export class LogowanieComponent implements OnInit {
 
-  logowanieForm: FormGroup = new FormGroup({
+  loginForm: FormGroup = new FormGroup({
     login: new FormControl('', Validators.required),
     haslo: new FormControl('', Validators.required)
   });
 
-  constructor(private logowanieService: LogowanieService,
+  constructor(private loginService: LoginService,
               private router: Router,
               public snackBar: MatSnackBar) {
   }
@@ -25,7 +25,7 @@ export class LogowanieComponent implements OnInit {
   }
 
   submit() {
-    if (this.logowanieForm.valid && this.logowanieService.zaloguj(this.logowanieForm)) {
+    if (this.loginForm.valid && this.loginService.logIn(this.loginForm)) {
       this.router.navigate(['/']);
     } else {
       this.openSnackbar();
